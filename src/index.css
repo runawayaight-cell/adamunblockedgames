@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Luckiest+Guy&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Fredoka", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Luckiest Guy", cursive;
+  
+  --color-brand-yellow: #FFD23F;
+  --color-brand-blue: #3A86FF;
+  --color-brand-pink: #FF006E;
+  --color-brand-green: #8AC926;
+  --color-brand-orange: #FF9F1C;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-blue text-zinc-900 selection:bg-brand-pink selection:text-white;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+    background-size: 30px 30px;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-black/10;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-brand-yellow border-2 border-black rounded-full;
+  }
+}
+
+@layer utilities {
+  .comic-border {
+    border: 4px solid black;
+  }
+
+  .comic-shadow {
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  }
+
+  .comic-shadow-sm {
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  }
+
+  .comic-shadow-lg {
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  }
+
+  .bouncy-hover {
+    @apply transition-transform duration-200 active:scale-95 hover:-translate-y-1;
+  }
+
+  .bubble {
+    @apply bg-white rounded-3xl p-6;
+    border: 4px solid black;
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  }
+}
+
+
