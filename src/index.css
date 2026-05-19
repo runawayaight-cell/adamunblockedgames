@@ -1,62 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Luckiest+Guy&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Fredoka", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --font-display: "Luckiest Guy", cursive;
-  
-  --color-brand-yellow: #FFD23F;
-  --color-brand-blue: #3A86FF;
-  --color-brand-pink: #FF006E;
-  --color-brand-green: #8AC926;
-  --color-brand-orange: #FF9F1C;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-brand-blue text-zinc-900 selection:bg-brand-pink selection:text-white;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px);
-    background-size: 30px 30px;
+    @apply bg-zinc-950 text-zinc-100 selection:bg-indigo-500 selection:text-white;
   }
 
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-black/10;
+    @apply bg-transparent;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-brand-yellow border-2 border-black rounded-full;
+    @apply bg-zinc-800 rounded-full hover:bg-zinc-700;
   }
 }
 
 @layer utilities {
-  .comic-border {
-    border: 4px solid black;
+  .glass {
+    @apply bg-zinc-900/50 backdrop-blur-md border border-white/5;
   }
 
-  .comic-shadow {
-    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
-  }
-
-  .comic-shadow-sm {
-    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
-  }
-
-  .comic-shadow-lg {
-    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
-  }
-
-  .bouncy-hover {
-    @apply transition-transform duration-200 active:scale-95 hover:-translate-y-1;
-  }
-
-  .bubble {
-    @apply bg-white rounded-3xl p-6;
-    border: 4px solid black;
-    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  .subtle-shadow {
+    box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.5);
   }
 }
 

@@ -10,60 +10,62 @@ export default function GameModal({ game, onClose }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-12"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
         id="game-modal-overlay"
       >
-        <div className="absolute inset-0 bg-brand-pink/20 backdrop-blur-sm" onClick={onClose} />
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={onClose} />
         
         <motion.div
-          initial={{ scale: 0.5, rotate: -10, opacity: 0 }}
-          animate={{ scale: 1, rotate: 0, opacity: 1 }}
-          exit={{ scale: 0.5, rotate: 10, opacity: 0 }}
-          transition={{ type: "spring", damping: 15 }}
-          className="relative w-full max-w-6xl h-full bg-white rounded-[40px] comic-border comic-shadow-lg flex flex-col overflow-hidden"
+          initial={{ scale: 0.9, y: 20, opacity: 0 }}
+          animate={{ scale: 1, y: 0, opacity: 1 }}
+          exit={{ scale: 0.9, y: 20, opacity: 0 }}
+          className="relative w-full max-w-6xl h-full bg-zinc-900 rounded-3xl border border-white/5 flex flex-col overflow-hidden shadow-2xl"
           id="game-modal-content"
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 bg-brand-yellow border-b-4 border-black">
+          <div className="flex items-center justify-between p-4 bg-zinc-900 border-b border-white/5">
             <div className="flex items-center gap-4">
-              <h2 className="text-3xl font-display uppercase tracking-tight text-black">{game.title}</h2>
-              <span className="hidden sm:inline-block text-xs font-black uppercase tracking-widest px-4 py-2 bg-brand-green rounded-full border-2 border-black">
+              <h2 className="text-xl font-bold tracking-tight text-white">{game.title}</h2>
+              <span className="hidden sm:inline-block text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-zinc-800 rounded-full text-zinc-400">
                 {game.category}
               </span>
             </div>
-            <div className="flex items-center gap-3">
-              <button className="p-3 bg-white hover:bg-brand-orange rounded-2xl comic-border comic-shadow-sm active:translate-y-1 active:shadow-none transition-all group" title="Reload">
-                <RotateCw className="w-6 h-6 group-hover:rotate-45 transition-transform" />
+            <div className="flex items-center gap-2">
+              <button className="p-2 text-zinc-400 hover:bg-white/5 rounded-lg transition-colors" title="Reload">
+                <RotateCw className="w-5 h-5" />
               </button>
               <button 
                 onClick={onClose}
-                className="p-3 bg-brand-pink text-white rounded-2xl comic-border comic-shadow-sm hover:scale-110 active:translate-y-1 active:shadow-none transition-all"
+                className="p-2 bg-zinc-800 text-zinc-300 hover:text-white rounded-lg transition-all"
                 id="close-modal-btn"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               </button>
             </div>
           </div>
 
           {/* Iframe */}
-          <div className="flex-1 bg-zinc-200 relative p-4">
-            <div className="w-full h-full bg-black rounded-3xl overflow-hidden border-4 border-black box-content -m-1">
-              <iframe
-                src={game.iframeUrl}
-                className="w-full h-full border-none"
-                title={game.title}
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
+          <div className="flex-1 bg-black relative">
+            <iframe
+              src={game.iframeUrl}
+              className="w-full h-full border-none"
+              title={game.title}
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
 
           {/* Footer Info */}
-          <div className="p-6 bg-brand-orange border-t-4 border-black font-bold flex justify-between items-center">
-            <p className="text-black italic">"{game.description}"</p>
-            <button className="bg-brand-blue text-white px-6 py-2 rounded-full comic-border comic-shadow-sm active:translate-y-1 active:shadow-none font-display uppercase tracking-tighter">
-              Full Screen Mode
-            </button>
+          <div className="p-4 bg-zinc-900 border-t border-white/5 flex justify-between items-center">
+            <p className="text-zinc-400 text-sm italic">{game.description}</p>
+            <div className="flex gap-2">
+               <button className="bg-zinc-800 text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-zinc-700 transition-colors uppercase tracking-widest">
+                Share
+              </button>
+              <button className="bg-indigo-600 text-white px-6 py-2 rounded-lg text-xs font-bold hover:bg-indigo-500 transition-colors uppercase tracking-widest">
+                Full Screen
+              </button>
+            </div>
           </div>
         </motion.div>
       </motion.div>

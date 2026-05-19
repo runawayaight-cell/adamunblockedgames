@@ -1,52 +1,49 @@
 import { motion } from 'motion/react';
-import { Play, Sparkles } from 'lucide-react';
+import { Play } from 'lucide-react';
 
 export default function Hero({ game, onPlay }) {
   return (
-    <section className="relative w-full min-h-[450px] bg-brand-orange rounded-[40px] comic-border comic-shadow-lg mt-8 flex flex-col md:flex-row items-center overflow-hidden" id="hero-section">
-      <div className="flex-1 p-8 md:p-12 z-10">
-        <motion.div
-          initial={{ rotate: -5, scale: 0.9, opacity: 0 }}
-          animate={{ rotate: 0, scale: 1, opacity: 1 }}
-          className="inline-flex items-center gap-2 bg-white text-brand-pink font-black uppercase tracking-tighter px-4 py-2 rounded-full comic-border comic-shadow-sm mb-6"
-        >
-          <Sparkles className="w-5 h-5 fill-current" />
-          Game of the day!
-        </motion.div>
+    <section className="relative w-full min-h-[400px] bg-zinc-900 rounded-3xl border border-white/5 overflow-hidden flex flex-col md:flex-row items-center" id="hero-section">
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-transparent to-transparent opacity-50" />
+      
+      <div className="flex-1 p-8 md:p-16 z-10">
+        <div className="inline-flex items-center gap-2 text-indigo-400 font-bold uppercase tracking-widest text-[10px] mb-4">
+          <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
+          Featured Game
+        </div>
         
-        <h2 className="text-6xl md:text-8xl font-display uppercase tracking-tight text-black mb-6 leading-none">
+        <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 leading-tight">
           {game.title}
         </h2>
         
-        <p className="text-black text-xl font-bold mb-10 max-w-lg leading-tight">
-          {game.description} Curated by Adam Adam for maximum awesomeness!
+        <p className="text-zinc-400 text-lg mb-8 max-w-lg leading-relaxed">
+          {game.description} High-speed, unblocked, and curated for the best experience.
         </p>
         
         <div className="flex flex-wrap gap-4">
           <motion.button
-            whileHover={{ scale: 1.1, rotate: -2 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={() => onPlay(game)}
-            className="flex items-center gap-3 bg-brand-yellow text-black font-display text-2xl uppercase py-5 px-10 rounded-3xl comic-border comic-shadow hover:comic-shadow-lg transition-all"
+            className="flex items-center gap-3 bg-white text-black font-bold text-lg py-4 px-8 rounded-2xl hover:bg-zinc-200 transition-all shadow-xl"
             id="hero-play-btn"
           >
-            <Play className="w-8 h-8 fill-current" />
-            Play Now
+            <Play className="w-5 h-5 fill-current" />
+            Launch Game
           </motion.button>
         </div>
       </div>
 
-      <div className="flex-1 w-full h-full relative min-h-[300px]">
-        <div className="absolute inset-0 bg-brand-yellow/20" />
-        <img
-          src={game.thumbnailUrl}
-          alt={game.title}
-          className="w-full h-full object-contain p-8 transform rotate-3"
-          referrerPolicy="no-referrer"
-        />
-        {/* Floating Cartoon Elements */}
-        <div className="absolute top-10 right-10 w-20 h-20 bg-brand-pink rounded-full comic-border comic-shadow-sm opacity-50 blur-sm animate-pulse" />
-        <div className="absolute bottom-20 left-10 w-12 h-12 bg-brand-blue rounded-full comic-border comic-shadow-sm opacity-50 blur-sm animate-bounce" />
+      <div className="flex-1 w-full h-full relative min-h-[250px] md:min-h-[400px] flex items-center justify-center p-8">
+        <div className="relative group">
+          <div className="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full" />
+          <img
+            src={game.thumbnailUrl}
+            alt={game.title}
+            className="relative z-10 w-full max-w-sm aspect-video object-cover rounded-2xl shadow-2xl border border-white/10 group-hover:scale-105 transition-transform duration-500"
+            referrerPolicy="no-referrer"
+          />
+        </div>
       </div>
     </section>
   );

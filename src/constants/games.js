@@ -1,4 +1,4 @@
-// Games array with the new Basket Hoop game.
+// Games array with only Basket Hoop.
 export const GAMES = [
   {
     id: 'basket-hoop',
