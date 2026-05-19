@@ -1,13 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Maximize2, RotateCw } from 'lucide-react';
-import { Game } from '../types';
 
-interface GameModalProps {
-  game: Game | null;
-  onClose: () => void;
-}
-
-export default function GameModal({ game, onClose }: GameModalProps) {
+export default function GameModal({ game, onClose }) {
   if (!game) return null;
 
   return (

@@ -11,12 +11,11 @@ import Hero from './components/Hero';
 import GameCard from './components/GameCard';
 import GameModal from './components/GameModal';
 import { GAMES, CATEGORIES } from './constants/games';
-import { Game, Category } from './types';
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<Category>('All');
-  const [selectedGame, setSelectedGame] = useState<Game | null>(null);
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [selectedGame, setSelectedGame] = useState(null);
 
   const featuredGame = useMemo(() => GAMES.find(g => g.isFeatured) || GAMES[0], []);
 
@@ -159,4 +158,3 @@ export default function App() {
     </div>
   );
 }
-

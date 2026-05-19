@@ -1,13 +1,7 @@
 import { motion } from 'motion/react';
 import { Play, Sparkles } from 'lucide-react';
-import { Game } from '../types';
 
-interface HeroProps {
-  game: Game;
-  onPlay: (game: Game) => void;
-}
-
-export default function Hero({ game, onPlay }: HeroProps) {
+export default function Hero({ game, onPlay }) {
   return (
     <section className="relative w-full min-h-[450px] bg-brand-orange rounded-[40px] comic-border comic-shadow-lg mt-8 flex flex-col md:flex-row items-center overflow-hidden" id="hero-section">
       <div className="flex-1 p-8 md:p-12 z-10">

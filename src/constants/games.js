@@ -1,7 +1,5 @@
-import { Game } from '../types';
-
 // Games array with the new Basket Hoop game.
-export const GAMES: Game[] = [
+export const GAMES = [
   {
     id: 'basket-hoop',
     title: 'Basket Hoop',
@@ -13,4 +11,4 @@ export const GAMES: Game[] = [
   }
 ];
 
-export const CATEGORIES: Game['category'][] = ['Action', 'Puzzle', 'Racing', 'Sports', 'Arcade', 'Strategy'];
+export const CATEGORIES = ['Action', 'Puzzle', 'Racing', 'Sports', 'Arcade', 'Strategy'];

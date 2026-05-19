@@ -1,13 +1,7 @@
 import { motion } from 'motion/react';
 import { Play } from 'lucide-react';
-import { Game } from '../types';
 
-interface GameCardProps {
-  game: Game;
-  onClick: (game: Game) => void;
-}
-
-export default function GameCard({ game, onClick }: GameCardProps) {
+export default function GameCard({ game, onClick }) {
   return (
     <motion.div
       layout

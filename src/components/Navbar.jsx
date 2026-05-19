@@ -1,12 +1,7 @@
 import { Search, Gamepad2, Stars, Cloud } from 'lucide-react';
 import { motion } from 'motion/react';
 
-interface NavbarProps {
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
-}
-
-export default function Navbar({ searchQuery, setSearchQuery }: NavbarProps) {
+export default function Navbar({ searchQuery, setSearchQuery }) {
   return (
     <nav className="sticky top-0 z-50 bg-brand-yellow px-4 py-4 sm:px-8 border-b-4 border-black flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-3 active:scale-95 transition-transform cursor-pointer group">
